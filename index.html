@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,maximum-scale=2">
+    <link rel="stylesheet" type="text/css" media="screen" href="/ThisAssembly/assets/css/style.css?v=6a2f7783633efc5bc5742b4b7e5bb68922232622">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>ThisAssembly | Exposes project and assembly level information as constants in the ThisAssembly class using source generators powered by Roslyn.</title>
+<meta name="generator" content="Jekyll v3.9.5" />
+<meta property="og:title" content="ThisAssembly" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Exposes project and assembly level information as constants in the ThisAssembly class using source generators powered by Roslyn." />
+<meta property="og:description" content="Exposes project and assembly level information as constants in the ThisAssembly class using source generators powered by Roslyn." />
+<meta property="og:site_name" content="ThisAssembly" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="ThisAssembly" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebSite","description":"Exposes project and assembly level information as constants in the ThisAssembly class using source generators powered by Roslyn.","headline":"ThisAssembly","name":"ThisAssembly","url":"/ThisAssembly/"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/ThisAssembly/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          
+            <a id="forkme_banner" href="https://github.com/devlooped/ThisAssembly">View on GitHub</a>
+          
+
+          <h1 id="project_title">ThisAssembly</h1>
+          <h2 id="project_tagline">Exposes project and assembly level information as constants in the ThisAssembly class using source generators powered by Roslyn.</h2>
+
+          
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1 id="-thisassembly"><img src="/ThisAssembly/img/icon-32.png" alt="Icon" /> ThisAssembly</h1>
+
+<p><a href="https://www.nuget.org/packages/ThisAssembly"><img src="https://img.shields.io/nuget/vpre/ThisAssembly.svg?color=royalblue" alt="Version" /></a>
+<a href="https://www.nuget.org/packages/ThisAssembly"><img src="https://img.shields.io/nuget/dt/ThisAssembly.svg?color=green" alt="Downloads" /></a>
+<a href="https://github.com//devlooped/ThisAssembly/blob/main/license.txt"><img src="https://img.shields.io/github/license/devlooped/ThisAssembly.svg?color=blue" alt="License" /></a>
+<a href="https://github.com/devlooped/ThisAssembly/actions"><img src="https://github.com/devlooped/ThisAssembly/workflows/build/badge.svg?branch=main" alt="Build" /></a></p>
+
+<!-- include https://github.com/devlooped/.github/raw/main/sponsorlinkr.md -->
+<p><em>This project uses <a href="https://github.com/devlooped#sponsorlink">SponsorLink</a> to attribute sponsor status (direct, indirect or implicit).</em>
+<em>For IDE usage, sponsor status is required. IDE-only warnings will be issued after a grace period otherwise.</em></p>
+
+<!-- https://github.com/devlooped/.github/raw/main/sponsorlinkr.md -->
+
+<!-- #meta -->
+<p>Expose project and assembly level information as constants in the ThisAssembly 
+class using source generators powered by Roslyn.</p>
+
+<p>The main generated entry point type is <code class="language-plaintext highlighter-rouge">ThisAssembly</code> in the global namespace (by default), 
+and is declared as partial so you can extend it too with manually created members.</p>
+
+<blockquote>
+  <p>Use <code class="language-plaintext highlighter-rouge">$(ThisAssemblyNamespace)</code> MSBuild property to set a root namespace for <code class="language-plaintext highlighter-rouge">ThisAssembly</code>.</p>
+</blockquote>
+
+<p>Each package in turn extends this partial class to add their own nestes types 
+and members.</p>
+
+<p>The <a href="https://nuget.org/packages/ThisAssembly">ThisAssembly</a> meta-package includes 
+all the other packages for convenience.</p>
+
+<blockquote>
+  <p>For now, ThisAssembly only generates C# code.
+<!-- #meta --></p>
+</blockquote>
+
+<h2 id="thisassemblyassemblyinfo">ThisAssembly.AssemblyInfo</h2>
+<p><a href="https://www.nuget.org/packages/ThisAssembly.AssemblyInfo"><img src="https://img.shields.io/nuget/vpre/ThisAssembly.AssemblyInfo.svg?color=royalblue" alt="Version" /></a>
+<a href="https://www.nuget.org/packages/ThisAssembly.AssemblyInfo"><img src="https://img.shields.io/nuget/dt/ThisAssembly.AssemblyInfo.svg?color=green" alt="Downloads" /></a></p>
+
+<!-- include src/ThisAssembly.AssemblyInfo/readme.md#assembly -->
+<!-- #assembly -->
+<p>This package generates a static <code class="language-plaintext highlighter-rouge">ThisAssembly.Info</code> class with public 
+constants exposing the following attribute values generated by default for SDK style projects:</p>
+
+<ul>
+  <li>AssemblyConfigurationAttribute</li>
+  <li>AssemblyCompanyAttribute</li>
+  <li>AssemblyTitleAttribute</li>
+  <li>AssemblyDescriptionAttribute</li>
+  <li>AssemblyProductAttribute</li>
+  <li>
+    <p>AssemblyCopyrightAttribute</p>
+  </li>
+  <li>AssemblyVersionAttribute</li>
+  <li>AssemblyInformationalVersionAttribute</li>
+  <li>AssemblyFileVersionAttribute</li>
+</ul>
+
+<p>If your project includes these attributes by other means, they will still be emitted properly 
+on the <code class="language-plaintext highlighter-rouge">ThisAssembly.Info</code> class.</p>
+
+<p><img src="https://raw.githubusercontent.com/devlooped/ThisAssembly/main/img/ThisAssembly.AssemblyInfo.png" alt="" /></p>
+
+<!-- #assembly -->
+<!-- src/ThisAssembly.AssemblyInfo/readme.md#assembly -->
+
+<h2 id="thisassemblyconstants">ThisAssembly.Constants</h2>
+
+<p><a href="https://www.nuget.org/packages/ThisAssembly.Constants"><img src="https://img.shields.io/nuget/vpre/ThisAssembly.Constants.svg?color=royalblue" alt="Version" /></a>
+<a href="https://www.nuget.org/packages/ThisAssembly.Constants"><img src="https://img.shields.io/nuget/dt/ThisAssembly.Constants.svg?color=green" alt="Downloads" /></a></p>
+
+<!-- include src/ThisAssembly.Constants/readme.md#constants -->
+<!-- #constants -->
+<p>This package generates a static <code class="language-plaintext highlighter-rouge">ThisAssembly.Constants</code> class with public
+constants for <code class="language-plaintext highlighter-rouge">@(Constant)</code> MSBuild items in the project.</p>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nt">&lt;ItemGroup&gt;</span>
+    <span class="nt">&lt;Constant</span> <span class="na">Include=</span><span class="s">"Foo.Bar"</span> <span class="na">Value=</span><span class="s">"Baz"</span> <span class="na">Comment=</span><span class="s">"Yay!"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;Constant</span> <span class="na">Include=</span><span class="s">"Foo.Hello"</span> <span class="na">Value=</span><span class="s">"World"</span> <span class="na">Comment=</span><span class="s">"Comments make everything better 😍"</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;/ItemGroup&gt;</span>
+</code></pre></div></div>
+
+<p><img src="https://raw.githubusercontent.com/devlooped/ThisAssembly/main/img/ThisAssembly.Constants.png" alt="" /></p>
+
+<p>These constants can use values from MSBuild properties, making compile-time values configurable 
+via environment variables or command line arguments. For example:</p>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nt">&lt;PropertyGroup&gt;</span>
+    <span class="nt">&lt;HttpDefaultTimeoutSeconds&gt;</span>10<span class="nt">&lt;/HttpDefaultTimeoutSeconds&gt;</span>
+  <span class="nt">&lt;/PropertyGroup&gt;</span>
+  <span class="nt">&lt;ItemGroup&gt;</span>
+    <span class="nt">&lt;Constant</span> <span class="na">Include=</span><span class="s">"Http.TimeoutSeconds"</span> 
+              <span class="na">Value=</span><span class="s">"$(HttpDefaultTimeoutSeconds)"</span> 
+              <span class="na">Type=</span><span class="s">"int"</span> 
+              <span class="na">Comment=</span><span class="s">"Default timeout in seconds for HTTP requests"</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;/ItemGroup&gt;</span>
+</code></pre></div></div>
+
+<p>The C# code could consume this constant as follows:</p>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">public</span> <span class="n">HttpClient</span> <span class="nf">CreateHttpClient</span><span class="p">(</span><span class="kt">string</span> <span class="n">name</span><span class="p">,</span> <span class="kt">int</span><span class="p">?</span> <span class="n">timeout</span> <span class="p">=</span> <span class="k">default</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">HttpClient</span> <span class="n">client</span> <span class="p">=</span> <span class="n">httpClientFactory</span><span class="p">.</span><span class="nf">CreateClient</span><span class="p">(</span><span class="n">name</span><span class="p">);</span>
+    <span class="n">client</span><span class="p">.</span><span class="n">Timeout</span> <span class="p">=</span> <span class="n">TimeSpan</span><span class="p">.</span><span class="nf">FromSeconds</span><span class="p">(</span><span class="n">timeout</span> <span class="p">??</span> <span class="n">ThisAssembly</span><span class="p">.</span><span class="n">Constants</span><span class="p">.</span><span class="n">Http</span><span class="p">.</span><span class="n">TimeoutSeconds</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">client</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Note how the constant is typed to <code class="language-plaintext highlighter-rouge">int</code> as specified in the <code class="language-plaintext highlighter-rouge">Type</code> attribute in MSBuild. 
+The generated code uses the specified <code class="language-plaintext highlighter-rouge">Type</code> as-is, as well as the <code class="language-plaintext highlighter-rouge">Value</code> attribute in that 
+case, so it’s up to the user to ensure they match and result in valid C# code. For example, 
+you can emit a boolean, long, double, etc.. If no type is provided, <code class="language-plaintext highlighter-rouge">string</code> is assumed. Values 
+can also be multi-line and will use <a href="https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/tokens/raw-string">C# raw string literals</a> 
+if supported by the target language version (11+).</p>
+
+<p>In this example, you could trivially change how your product behaves by setting the environment 
+variable <code class="language-plaintext highlighter-rouge">HttpDefaultTimeoutSeconds</code> in CI. This is particularly useful for test projects, 
+where you can easily change the behavior of the system under test without changing the code.</p>
+
+<p>In addition to arbitrary constants via <code class="language-plaintext highlighter-rouge">&lt;Constant ...&gt;</code>, it’s quite useful (in particular in test projects) 
+to generate constants for files in the project, so there’s also a shorthand for those:</p>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nt">&lt;ItemGroup&gt;</span>
+    <span class="nt">&lt;FileConstant</span> <span class="na">Include=</span><span class="s">"@(Content)"</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;/ItemGroup&gt;</span>
+</code></pre></div></div>
+
+<p>Which results in:</p>
+
+<p><img src="https://raw.githubusercontent.com/devlooped/ThisAssembly/main/img/ThisAssembly.Constants2.png" alt="" /></p>
+
+<!-- #constants -->
+<!-- src/ThisAssembly.Constants/readme.md#constants -->
+
+<h2 id="thisassemblygit">ThisAssembly.Git</h2>
+
+<p><a href="https://www.nuget.org/packages/ThisAssembly.Git"><img src="https://img.shields.io/nuget/vpre/ThisAssembly.Git.svg?color=royalblue" alt="Version" /></a>
+<a href="https://www.nuget.org/packages/ThisAssembly.Git"><img src="https://img.shields.io/nuget/dt/ThisAssembly.Git.svg?color=green" alt="Downloads" /></a></p>
+
+<!-- include src/ThisAssembly.Git/readme.md#git -->
+<!-- #git -->
+<p>This package generates a static <code class="language-plaintext highlighter-rouge">ThisAssembly.Git</code> class with constants 
+for the following Git properties from the current project:</p>
+
+<ul>
+  <li>Commit</li>
+  <li>Sha (first 9 chars from Commit)</li>
+  <li>Root (normalized to forward slashes)</li>
+  <li>Url (if PublishRepositoryUrl=true)</li>
+  <li>Branch (from CI environment variables)</li>
+</ul>
+
+<p><img src="https://raw.githubusercontent.com/devlooped/ThisAssembly/main/img/ThisAssembly.Git.png" alt="" /></p>
+
+<p>This package relies on your project’s installed
+<a href="https://www.nuget.org/packages?q=Microsoft.SourceLink">Microsoft.SourceLink.*</a> 
+package reference according to your specific Git-based source control server 
+(such as GitHub, Azure DevOps, BitBucket, etc).</p>
+
+<blockquote>
+  <p>NOTE: from .NET 8 SDK onwards, SourceLink is included by default, so you 
+don’t need to add it manually.</p>
+</blockquote>
+
+<p>The <code class="language-plaintext highlighter-rouge">Branch</code> property is populated from environment variables provided 
+by the currently supported CI systems: GitHub Actions, Azure DevOps, 
+AppVeyor, TeamCity, Travis CI, Circle CI, GitLab CI, Buddy, and Jenkins.</p>
+
+<p>Whenever the CI system provides a pull request number, the branch name is 
+<code class="language-plaintext highlighter-rouge">pr[NUMBER]</code>, such as <code class="language-plaintext highlighter-rouge">pr123</code>. This makes it easy to use it as a semver 
+metadata label.</p>
+
+<blockquote>
+  <p>Note: by default, the values of these constants are populated during 
+“real” builds (that is, not IDE/design-time builds used to populate 
+intellisense). This is to avoid negatively affecting the editor’s 
+performance. This means, however, that the properties will seem to 
+always be empty when inspecting them in the IDE (although never at 
+run-time). If you want to force population of these values for 
+design-time builds, set the <code class="language-plaintext highlighter-rouge">EnableSourceControlManagerQueries</code> property to <code class="language-plaintext highlighter-rouge">true</code>. 
+This property is defined and documented by 
+<a href="https://github.com/dotnet/sourcelink/blob/main/src/SourceLink.Common/build/Microsoft.SourceLink.Common.props#L14">dotnet/sourcelink</a>.</p>
+</blockquote>
+
+<p>At the MSBuild level, targets can take a dependency on the provided 
+<code class="language-plaintext highlighter-rouge">InitializeGitInformation</code> target, which sets the equivalent properties
+named:</p>
+
+<ul>
+  <li>RepositoryCommit</li>
+  <li>RepositorySha</li>
+  <li>RepositoryRoot</li>
+  <li>RepositoryUrl</li>
+  <li>RepositoryBranch</li>
+</ul>
+
+<p>The names of these properties were chosen on purpose to match the 
+properties used by <a href="https://learn.microsoft.com/en-us/nuget/reference/msbuild-targets#pack-target">nuget pack</a> 
+and <a href="https://github.com/devlooped/nugetizer">nugetizer</a> to populate
+the relevant package metadata.</p>
+
+<p>So if you have a GitHub repository, installing these three packages 
+will ensure you have the proper metadata out of the box and the simplest 
+packaging experience possible:</p>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;Project</span> <span class="na">Sdk=</span><span class="s">"Microsoft.NET.Sdk"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;PropertyGroup&gt;</span>
+    <span class="nt">&lt;TargetFramework&gt;</span>netstandard2.0<span class="nt">&lt;/TargetFramework&gt;</span>
+  <span class="nt">&lt;/PropertyGroup&gt;</span>
+
+  <span class="nt">&lt;ItemGroup&gt;</span>
+    <span class="nt">&lt;PackageReference</span> <span class="na">Include=</span><span class="s">"Microsoft.SourceLink.GitHub"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;PackageReference</span> <span class="na">Include=</span><span class="s">"ThisAssembly.Git"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;PackageReference</span> <span class="na">Include=</span><span class="s">"NuGetizer"</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;/ItemGroup&gt;</span>
+<span class="nt">&lt;/Project&gt;</span>
+</code></pre></div></div>
+
+<!-- #git -->
+<!-- src/ThisAssembly.Git/readme.md#git -->
+
+<h2 id="thisassemblymetadata">ThisAssembly.Metadata</h2>
+
+<p><a href="https://www.nuget.org/packages/ThisAssembly.Metadata"><img src="https://img.shields.io/nuget/vpre/ThisAssembly.Metadata.svg?color=royalblue" alt="Version" /></a>
+<a href="https://www.nuget.org/packages/ThisAssembly.Metadata"><img src="https://img.shields.io/nuget/dt/ThisAssembly.Metadata.svg?color=green" alt="Downloads" /></a></p>
+
+<!-- include src/ThisAssembly.Metadata/readme.md#metadata -->
+<!-- #metadata -->
+<p>This package provides a static <code class="language-plaintext highlighter-rouge">ThisAssembly.Metadata</code> class with public 
+constants exposing each <code class="language-plaintext highlighter-rouge">[System.Reflection.AssemblyMetadata(..)]</code> defined for 
+the project.</p>
+
+<p><img src="https://raw.githubusercontent.com/devlooped/ThisAssembly/main/img/ThisAssembly.Metadata.png" alt="" /></p>
+
+<p>For an attribute declared (i.e. in <em>AssemblyInfo.cs</em>) like:</p>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="n">assembly</span><span class="p">:</span> <span class="n">System</span><span class="p">.</span><span class="n">Reflection</span><span class="p">.</span><span class="nf">AssemblyMetadataAttribute</span><span class="p">(</span><span class="s">"Foo"</span><span class="p">,</span> <span class="s">"Bar"</span><span class="p">)]</span>
+</code></pre></div></div>
+
+<p>A corresponding <code class="language-plaintext highlighter-rouge">ThisAssembly.Metadata.Foo</code> constant with the value <code class="language-plaintext highlighter-rouge">Bar</code> is provided. 
+The metadata attribute can alternatively be declared using MSBuild syntax in the project 
+(for .NET 5.0+ projects that have built-in support for <code class="language-plaintext highlighter-rouge">@(AssemblyMetadata)</code> items):</p>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nt">&lt;ItemGroup&gt;</span>
+    <span class="nt">&lt;AssemblyMetadata</span> <span class="na">Include=</span><span class="s">"Foo"</span> <span class="na">Value=</span><span class="s">"Bar"</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;/ItemGroup&gt;</span>
+</code></pre></div></div>
+
+<!-- #metadata -->
+<!-- src/ThisAssembly.Metadata/readme.md#metadata -->
+
+<h2 id="thisassemblyproject">ThisAssembly.Project</h2>
+
+<p><a href="https://www.nuget.org/packages/ThisAssembly.Project"><img src="https://img.shields.io/nuget/vpre/ThisAssembly.Project.svg?color=royalblue" alt="Version" /></a>
+<a href="https://www.nuget.org/packages/ThisAssembly.Project"><img src="https://img.shields.io/nuget/dt/ThisAssembly.Project.svg?color=green" alt="Downloads" /></a></p>
+
+<!-- include src/ThisAssembly.Project/readme.md#project -->
+<!-- #project -->
+<p>This package generates a static <code class="language-plaintext highlighter-rouge">ThisAssembly.Project</code> class with public 
+constants exposing project properties that have been opted into this mechanism by adding 
+them as <code class="language-plaintext highlighter-rouge">ProjectProperty</code> MSBuild items in the project file, such as:</p>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nt">&lt;PropertyGroup&gt;</span>
+    <span class="c">&lt;!-- Some arbitrary MSBuild property declared somewhere --&gt;</span>
+    <span class="nt">&lt;Foo&gt;</span>Bar<span class="nt">&lt;/Foo&gt;</span>
+  <span class="nt">&lt;/PropertyGroup&gt;</span>
+  <span class="nt">&lt;ItemGroup&gt;</span>
+    <span class="c">&lt;!-- Opt-in to emitting that property value as a constant in ThisAssembly.Project --&gt;</span>
+    <span class="nt">&lt;ProjectProperty</span> <span class="na">Include=</span><span class="s">"Foo"</span> <span class="na">Comment=</span><span class="s">"This comment replaces the default comment :)"</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;/ItemGroup&gt;</span>
+</code></pre></div></div>
+
+<p><img src="https://raw.githubusercontent.com/devlooped/ThisAssembly/main/img/ThisAssembly.Project.png" alt="" /></p>
+
+<!-- #project -->
+<!-- src/ThisAssembly.Project/readme.md#project -->
+
+<h2 id="thisassemblyresources">ThisAssembly.Resources</h2>
+
+<p><a href="https://www.nuget.org/packages/ThisAssembly.Resources"><img src="https://img.shields.io/nuget/vpre/ThisAssembly.Resources.svg?color=royalblue" alt="Version" /></a>
+<a href="https://www.nuget.org/packages/ThisAssembly.Resources"><img src="https://img.shields.io/nuget/dt/ThisAssembly.Resources.svg?color=green" alt="Downloads" /></a></p>
+
+<p>This package generates a static <code class="language-plaintext highlighter-rouge">ThisAssembly.Resources</code> class with public 
+properties exposing shortcuts to retrieve the contents of embedded resources.</p>
+
+<!-- include src/ThisAssembly.Resources/readme.md#resources -->
+<!-- #resources -->
+
+<p>This package generates a static <code class="language-plaintext highlighter-rouge">ThisAssembly.Resources</code> class with public 
+properties exposing typed APIs to retrieve the contents of embedded resources.</p>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nt">&lt;ItemGroup&gt;</span>
+    <span class="nt">&lt;EmbeddedResource</span> <span class="na">Include=</span><span class="s">"Content/Docs/License.md"</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;/ItemGroup&gt;</span>
+</code></pre></div></div>
+
+<p><img src="https://raw.githubusercontent.com/devlooped/ThisAssembly/main/img/ThisAssembly.Resources.png" alt="" /></p>
+
+<p>Since markdown files are text files, the API will expose a <code class="language-plaintext highlighter-rouge">Text</code> property property 
+for it that will read its content once and cache it:</p>
+
+<p><img src="https://raw.githubusercontent.com/devlooped/ThisAssembly/main/img/ThisAssembly.Resources2.png" alt="" /></p>
+
+<p>The <code class="language-plaintext highlighter-rouge">$(EmbeddedResourceStringExtensions)</code> MSBuild property allows customizing which 
+file extensions get treated as text files. By default, it’s defined as:</p>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nt">&lt;PropertyGroup&gt;</span>
+    <span class="nt">&lt;EmbeddedResourceStringExtensions&gt;</span>.txt|.cs|.sql|.json|.md<span class="nt">&lt;/EmbeddedResourceStringExtensions&gt;</span>
+  <span class="nt">&lt;/PropertyGroup&gt;</span>
+</code></pre></div></div>
+
+<p>You can append additional file extensions to this list, or override it completely.
+The list must be pipe-separated.</p>
+
+<p>You can always use the provided <code class="language-plaintext highlighter-rouge">GetStream</code> and <code class="language-plaintext highlighter-rouge">GetBytes</code> for more advanced scenarios (or for 
+non-text resources).</p>
+
+<p>Optionally, you can specify the <code class="language-plaintext highlighter-rouge">Kind</code> metadata for a specific <code class="language-plaintext highlighter-rouge">EmbeddedResource</code> you want 
+treated as a text file:</p>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="nt">&lt;EmbeddedResource</span> <span class="na">Include=</span><span class="s">"query.kql"</span> <span class="na">Kind=</span><span class="s">"Text"</span> <span class="nt">/&gt;</span>
+</code></pre></div></div>
+
+<p>You can also add a <code class="language-plaintext highlighter-rouge">Comment</code> item metadata attribute, which will be used as the <code class="language-plaintext highlighter-rouge">&lt;summary&gt;</code> XML 
+doc for the generated member.</p>
+
+<h2 id="customizing-the-generated-code">Customizing the generated code</h2>
+
+<p>The following MSBuild properties can be used to customize the generated code:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>ThisAssemblyNamespace</td>
+      <td>Sets the namespace of the generated <code class="language-plaintext highlighter-rouge">ThisAssembly</code> root class. If not set, it will be in the global namespace.</td>
+    </tr>
+    <tr>
+      <td>ThisAssemblyVisibility</td>
+      <td>Sets the visibility modifier of the generated <code class="language-plaintext highlighter-rouge">ThisAssembly</code> root class. If not set, it will be internal.</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- #resources -->
+<!-- src/ThisAssembly.Resources/readme.md#resources -->
+
+<h2 id="thisassemblystrings">ThisAssembly.Strings</h2>
+
+<p><a href="https://www.nuget.org/packages/ThisAssembly.Strings"><img src="https://img.shields.io/nuget/vpre/ThisAssembly.Strings.svg?color=royalblue" alt="Version" /></a>
+<a href="https://www.nuget.org/packages/ThisAssembly.Strings"><img src="https://img.shields.io/nuget/dt/ThisAssembly.Strings.svg?color=green" alt="Downloads" /></a></p>
+
+<!-- include src/ThisAssembly.Strings/readme.md#strings -->
+<!-- #strings -->
+
+<p>This package generates a static <code class="language-plaintext highlighter-rouge">ThisAssembly.Strings</code> class with public 
+constants exposing string resources in .resx files or methods with the right number of 
+parameters for strings that use formatting parameters.</p>
+
+<p><img src="https://raw.githubusercontent.com/devlooped/ThisAssembly/main/img/ThisAssembly.Strings.gif" alt="" /></p>
+
+<p>In addition, it groups constants and methods in nested classes according to an optional 
+underscore separator to organize strings. For example, <em>User_InvalidCredentials</em> can be
+accessed with <em>ThisAssembly.Strings.User.InvalidCredentials</em> if it contains a simple string, 
+or as a method with the right number of parametres if its value has a format string.</p>
+
+<p>Given the following Resx file:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Value</th>
+      <th>Comment</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Infrastructure_MissingService</td>
+      <td>Service {0} is required.</td>
+      <td>For logging only!</td>
+    </tr>
+    <tr>
+      <td>Shopping_NoShipping</td>
+      <td>We cannot ship {0} to {1}.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Shopping_OutOfStock</td>
+      <td>Product is out of stock at this time.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Shopping_AvailableOn</td>
+      <td>Product available on {date:yyyy-MM}.</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<p>The following code would be generated:</p>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">partial</span> <span class="k">class</span> <span class="nc">ThisAssembly</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">static</span> <span class="k">partial</span> <span class="k">class</span> <span class="nc">Strings</span>
+    <span class="p">{</span>
+        <span class="k">public</span> <span class="k">static</span> <span class="k">partial</span> <span class="k">class</span> <span class="nc">Infrastructure</span>
+        <span class="p">{</span>
+            <span class="c1">/// &lt;summary&gt;</span>
+            <span class="c1">/// For logging only!</span>
+            <span class="c1">/// =&gt; "Service {0} is required."</span>
+            <span class="c1">/// &lt;/summary&gt;</span>
+            <span class="k">public</span> <span class="k">static</span> <span class="kt">string</span> <span class="nf">MissingService</span><span class="p">(</span><span class="kt">object</span> <span class="n">arg0</span><span class="p">)</span>
+                <span class="p">=&gt;</span> <span class="kt">string</span><span class="p">.</span><span class="nf">Format</span><span class="p">(</span><span class="n">CultureInfo</span><span class="p">.</span><span class="n">CurrentCulture</span><span class="p">,</span> 
+                    <span class="n">Strings</span><span class="p">.</span><span class="nf">GetResourceManager</span><span class="p">(</span><span class="s">"ThisStore.Properties.Resources"</span><span class="p">).</span><span class="nf">GetString</span><span class="p">(</span><span class="s">"MissingService"</span><span class="p">),</span> 
+                    <span class="n">arg0</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="k">public</span> <span class="k">static</span> <span class="k">partial</span> <span class="k">class</span> <span class="nc">Shopping</span>
+        <span class="p">{</span>
+            <span class="c1">/// &lt;summary&gt;</span>
+            <span class="c1">/// =&gt; "We cannot ship {0} to {1}."</span>
+            <span class="c1">/// &lt;/summary&gt;</span>
+            <span class="k">public</span> <span class="k">static</span> <span class="kt">string</span> <span class="nf">NoShipping</span><span class="p">(</span><span class="kt">object</span> <span class="n">arg0</span><span class="p">,</span> <span class="kt">object</span> <span class="n">arg1</span><span class="p">)</span>
+                <span class="p">=&gt;</span> <span class="kt">string</span><span class="p">.</span><span class="nf">Format</span><span class="p">(</span><span class="n">CultureInfo</span><span class="p">.</span><span class="n">CurrentCulture</span><span class="p">,</span> 
+                    <span class="n">Strings</span><span class="p">.</span><span class="nf">GetResourceManager</span><span class="p">(</span><span class="s">"ThisStore.Properties.Resources"</span><span class="p">).</span><span class="nf">GetString</span><span class="p">(</span><span class="s">"NoShipping"</span><span class="p">),</span> 
+                    <span class="n">arg0</span><span class="p">,</span> <span class="n">arg1</span><span class="p">);</span>
+
+            <span class="c1">/// &lt;summary&gt;</span>
+            <span class="c1">/// =&gt; "Product is out of stock at this time."</span>
+            <span class="c1">/// &lt;/summary&gt;</span>
+            <span class="k">public</span> <span class="k">static</span> <span class="kt">string</span> <span class="n">OutOfStock</span>
+                <span class="p">=&gt;</span> <span class="n">Strings</span><span class="p">.</span><span class="nf">GetResourceManager</span><span class="p">(</span><span class="s">"ThisStore.Properties.Resources"</span><span class="p">).</span><span class="nf">GetString</span><span class="p">(</span><span class="s">"OutOfStock"</span><span class="p">);</span>
+
+            <span class="c1">/// &lt;summary&gt;</span>
+            <span class="c1">/// Product available on {date:yyyy-MM}.</span>
+            <span class="c1">/// &lt;/summary&gt;</span>
+            <span class="k">public</span> <span class="k">static</span> <span class="kt">string</span> <span class="nf">AvailableOn</span><span class="p">(</span><span class="kt">object</span> <span class="n">date</span><span class="p">)</span> 
+                <span class="p">=&gt;</span> <span class="kt">string</span><span class="p">.</span><span class="nf">Format</span><span class="p">(</span><span class="n">CultureInfo</span><span class="p">.</span><span class="n">CurrentCulture</span><span class="p">,</span> 
+                    <span class="n">Strings</span><span class="p">.</span><span class="nf">GetResourceManager</span><span class="p">(</span><span class="s">"ThisAssemblyTests.Resources"</span><span class="p">).</span><span class="nf">GetString</span><span class="p">(</span><span class="s">"WithNamedFormat"</span><span class="p">).</span><span class="nf">Replace</span><span class="p">(</span><span class="s">"{date:yyyy-MM}"</span><span class="p">,</span> <span class="s">"{0}"</span><span class="p">),</span> 
+                    <span class="p">((</span><span class="n">IFormattable</span><span class="p">)</span><span class="n">date</span><span class="p">).</span><span class="nf">ToString</span><span class="p">(</span><span class="s">"yyyy-MM"</span><span class="p">,</span> <span class="n">CultureInfo</span><span class="p">.</span><span class="n">CurrentCulture</span><span class="p">));</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="customizing-the-generated-code-1">Customizing the generated code</h2>
+
+<p>The following MSBuild properties can be used to customize the generated code:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>ThisAssemblyNamespace</td>
+      <td>Sets the namespace of the generated <code class="language-plaintext highlighter-rouge">ThisAssembly</code> root class. If not set, it will be in the global namespace.</td>
+    </tr>
+    <tr>
+      <td>ThisAssemblyVisibility</td>
+      <td>Sets the visibility modifier of the generated <code class="language-plaintext highlighter-rouge">ThisAssembly</code> root class. If not set, it will be internal.</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- #strings -->
+<!-- src/ThisAssembly.Strings/readme.md#strings -->
+
+<h2 id="thisassemblyvsix">ThisAssembly.Vsix</h2>
+
+<p><a href="https://www.nuget.org/packages/ThisAssembly.Vsix"><img src="https://img.shields.io/nuget/vpre/ThisAssembly.Vsix.svg?color=royalblue" alt="Version" /></a>
+<a href="https://www.nuget.org/packages/ThisAssembly.Vsix"><img src="https://img.shields.io/nuget/dt/ThisAssembly.Vsix.svg?color=green" alt="Downloads" /></a></p>
+
+<!-- include src/ThisAssembly.Vsix/readme.md#vsix -->
+<!-- #vsix -->
+<p>Allows consuming VSIX manifest properties from code, as well as 
+MSBuild project properties from the VSIX manifest. For example:</p>
+
+<p><img src="https://raw.githubusercontent.com/devlooped/ThisAssembly/main/img/ThisAssembly.Vsix.png" alt="" /></p>
+
+<p>And in the <code class="language-plaintext highlighter-rouge">source.extension.vsixmanifest</code>:</p>
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;PackageManifest</span> <span class="na">Version=</span><span class="s">"2.0.0"</span> <span class="err">...</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;Metadata&gt;</span>
+    <span class="c">&lt;!-- You can use the |ProjectName;TargetName| syntax throughout this manifest, BTW --&gt;</span>
+    <span class="nt">&lt;Identity</span> <span class="na">Id=</span><span class="s">"|%CurrentProject%;VsixId|"</span> <span class="na">Version=</span><span class="s">"|%CurrentProject%;VsixVersion|"</span> <span class="na">Language=</span><span class="s">"|%CurrentProject%;VsixLanguage|"</span> <span class="na">Publisher=</span><span class="s">"|%CurrentProject%;VsixPublisher|"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;DisplayName&gt;</span>|%CurrentProject%;VsixDisplayName|<span class="nt">&lt;/DisplayName&gt;</span>
+    <span class="nt">&lt;Description&gt;</span>|%CurrentProject%;VsixDescription|<span class="nt">&lt;/Description&gt;</span>
+  <span class="nt">&lt;/Metadata&gt;</span>
+  ...
+<span class="nt">&lt;/PackageManifest&gt;</span>
+</code></pre></div></div>
+
+<p>As shown above, in addition to making the <a href="https://learn.microsoft.com/en-us/visualstudio/extensibility/vsix-extension-schema-2-0-reference?view=vs-2022#metadata-element">VSIX manifest metadata</a> 
+properties available as constants, the package also provides targets for those properties 
+with sensible defaults from project properties so that the manifest can leverage 
+<a href="https://learn.microsoft.com/en-us/visualstudio/extensibility/vsix-extension-schema-2-0-reference?view=vs-2022#metadata-element">placeolder syntax</a> 
+and avoid duplication.</p>
+
+<p>The available properties and their default values are:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Default Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>VsixID</td>
+      <td><code class="language-plaintext highlighter-rouge">$(PackageId)</code> or <code class="language-plaintext highlighter-rouge">$(AssemblyName)</code></td>
+    </tr>
+    <tr>
+      <td>VsixVersion</td>
+      <td><code class="language-plaintext highlighter-rouge">$(Version)</code></td>
+    </tr>
+    <tr>
+      <td>VsixDisplayName</td>
+      <td><code class="language-plaintext highlighter-rouge">$(Title)</code></td>
+    </tr>
+    <tr>
+      <td>VsixDescription</td>
+      <td><code class="language-plaintext highlighter-rouge">$(Description)</code></td>
+    </tr>
+    <tr>
+      <td>VsixProduct</td>
+      <td><code class="language-plaintext highlighter-rouge">$(Product)</code></td>
+    </tr>
+    <tr>
+      <td>VsixPublisher</td>
+      <td><code class="language-plaintext highlighter-rouge">$(Company)</code></td>
+    </tr>
+    <tr>
+      <td>VsixLanguage</td>
+      <td><code class="language-plaintext highlighter-rouge">$(NeutralLanguage)</code> or ‘en-US’</td>
+    </tr>
+    <tr>
+      <td>VsixDescription</td>
+      <td><code class="language-plaintext highlighter-rouge">$(Description)</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>As shown in the example above, the syntax for using these properties from the <code class="language-plaintext highlighter-rouge">source.extension.vsixmanifest</code> is 
+<code class="language-plaintext highlighter-rouge">|%CurrentProject%;[PROPERTY]|</code>. This is because the package defines a corresponding target to 
+retrieve each of the above properties. You can provide a different value for each property via 
+MSBuild as usual, of course.</p>
+
+<p>Since the <code class="language-plaintext highlighter-rouge">$(PackageId)</code> property can be used as the VSIX ID, the <code class="language-plaintext highlighter-rouge">Pack</code> target is redefined to 
+mean <code class="language-plaintext highlighter-rouge">CreateVsixManifest</code>, so “packing” the VSIX is just a matter of right-clicking the VSIX 
+project and selecting “Pack”.</p>
+
+<!-- #vsix -->
+<!-- src/ThisAssembly.Vsix/readme.md#vsix -->
+
+<!-- include src/visibility.md -->
+<h2 id="customizing-the-generated-code-2">Customizing the generated code</h2>
+
+<p>Set the <code class="language-plaintext highlighter-rouge">$(ThisAssemblyNamespace)</code> MSBuild property to set the namespace of the 
+generated <code class="language-plaintext highlighter-rouge">ThisAssembly</code> root class. Otherwise, it will be generated in the global namespace.</p>
+
+<p>The generated root <code class="language-plaintext highlighter-rouge">ThisAssembly</code> class is partial and has no visibility modifier by default, 
+making it internal by default in C#.</p>
+
+<p>You can set the <code class="language-plaintext highlighter-rouge">$(ThisAssemblyVisibility)</code> MSBuild property to <code class="language-plaintext highlighter-rouge">public</code> to make it public. 
+This will also change all constants to be static readonly properties instead.</p>
+
+<p>Default:</p>
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">partial</span> <span class="k">class</span> <span class="nc">ThisAssembly</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">partial</span> <span class="k">class</span> <span class="nc">Constants</span>
+    <span class="p">{</span>
+        <span class="k">public</span> <span class="k">const</span> <span class="kt">string</span> <span class="n">Hello</span> <span class="p">=</span> <span class="s">"World"</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>In this case, the compiler will inline the constants directly into the consuming code at 
+the call site, which is optimal for performance for the common usage of constants.</p>
+
+<p>Public:</p>
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">public</span> <span class="k">partial</span> <span class="k">class</span> <span class="nc">ThisAssembly</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">partial</span> <span class="k">class</span> <span class="nc">Constants</span>
+    <span class="p">{</span>
+        <span class="k">public</span> <span class="k">static</span> <span class="kt">string</span> <span class="n">Hello</span> <span class="p">=&gt;</span> <span class="s">"World"</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>This makes it possible for consuming code to remain unchanged and not require 
+a recompile when the the values of <code class="language-plaintext highlighter-rouge">ThisAssembly</code> are changed in a referenced assembly.</p>
+
+<p>If you want to keep the properties as constants, you can instead extend the generated 
+code by defining another partial that can modify its visibility as needed (or add 
+new members).</p>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// makes the generated class public</span>
+<span class="k">public</span> <span class="k">partial</span> <span class="n">ThisAssembly</span> 
+<span class="p">{</span>
+    <span class="c1">// Nested classes are always public since the outer class </span>
+    <span class="c1">// already limits their visibility</span>
+    <span class="k">partial</span> <span class="k">class</span> <span class="nc">Constants</span> 
+    <span class="p">{</span>
+        <span class="c1">// add some custom constants</span>
+        <span class="k">public</span> <span class="k">const</span> <span class="kt">string</span> <span class="n">MyConstant</span> <span class="p">=</span> <span class="s">"This isn't configurable via MSBuild"</span><span class="p">;</span>
+
+        <span class="c1">// generated code will remain as constants</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<!-- src/visibility.md -->
+
+<h1 id="dogfooding">Dogfooding</h1>
+
+<p><a href="https://pkg.kzu.io/index.json"><img src="https://img.shields.io/endpoint?url=https://shields.kzu.io/vpre/Stunts/main&amp;label=nuget.ci&amp;color=brightgreen" alt="CI Version" /></a>
+<a href="https://github.com/devlooped/ThisAssembly/actions"><img src="https://github.com/devlooped/ThisAssembly/workflows/build/badge.svg?branch=main" alt="Build" /></a></p>
+
+<p>We also produce CI packages from branches and pull requests so you can dogfood builds as quickly as they are produced.</p>
+
+<p>The CI feed is <code class="language-plaintext highlighter-rouge">https://pkg.kzu.io/index.json</code>.</p>
+
+<p>The versioning scheme for packages is:</p>
+
+<ul>
+  <li>PR builds: <em>42.42.42-pr</em><code class="language-plaintext highlighter-rouge">[NUMBER]</code></li>
+  <li>Branch builds: <em>42.42.42-</em><code class="language-plaintext highlighter-rouge">[BRANCH]</code>.<code class="language-plaintext highlighter-rouge">[COMMITS]</code></li>
+</ul>
+
+<!-- include https://github.com/devlooped/sponsors/raw/main/footer.md -->
+<h1 id="sponsors">Sponsors</h1>
+
+<!-- sponsors.md -->
+<p><a href="https://github.com/clarius"><img src="https://raw.githubusercontent.com/devlooped/sponsors/main/.github/avatars/clarius.png" alt="Clarius Org" title="Clarius Org" /></a>
+<a href="https://github.com/KirillOsenkov"><img src="https://raw.githubusercontent.com/devlooped/sponsors/main/.github/avatars/KirillOsenkov.png" alt="Kirill Osenkov" title="Kirill Osenkov" /></a>
+<a href="https://github.com/MFB-Technologies-Inc"><img src="https://raw.githubusercontent.com/devlooped/sponsors/main/.github/avatars/MFB-Technologies-Inc.png" alt="MFB Technologies, Inc." title="MFB Technologies, Inc." /></a>
+<a href="https://github.com/torutek-gh"><img src="https://raw.githubusercontent.com/devlooped/sponsors/main/.github/avatars/torutek-gh.png" alt="Torutek" title="Torutek" /></a>
+<a href="https://github.com/drivenet"><img src="https://raw.githubusercontent.com/devlooped/sponsors/main/.github/avatars/drivenet.png" alt="DRIVE.NET, Inc." title="DRIVE.NET, Inc." /></a>
+<a href="https://github.com/Keflon"><img src="https://raw.githubusercontent.com/devlooped/sponsors/main/.github/avatars/Keflon.png" alt="Keith Pickford" title="Keith Pickford" /></a>
+<a href="https://github.com/tbolon"><img src="https://raw.githubusercontent.com/devlooped/sponsors/main/.github/avatars/tbolon.png" alt="Thomas Bolon" title="Thomas Bolon" /></a>
+<a href="https://github.com/kfrancis"><img src="https://raw.githubusercontent.com/devlooped/sponsors/main/.github/avatars/kfrancis.png" alt="Kori Francis" title="Kori Francis" /></a>
+<a href="https://github.com/twenzel"><img src="https://raw.githubusercontent.com/devlooped/sponsors/main/.github/avatars/twenzel.png" alt="Toni Wenzel" title="Toni Wenzel" /></a>
+<a href="https://github.com/unoplatform"><img src="https://raw.githubusercontent.com/devlooped/sponsors/main/.github/avatars/unoplatform.png" alt="Uno Platform" title="Uno Platform" /></a>
+<a href="https://github.com/dansiegel"><img src="https://raw.githubusercontent.com/devlooped/sponsors/main/.github/avatars/dansiegel.png" alt="Dan Siegel" title="Dan Siegel" /></a>
+<a href="https://github.com/rbnswartz"><img src="https://raw.githubusercontent.com/devlooped/sponsors/main/.github/avatars/rbnswartz.png" alt="Reuben Swartz" title="Reuben Swartz" /></a>
+<a href="https://github.com/jfoshee"><img src="https://raw.githubusercontent.com/devlooped/sponsors/main/.github/avatars/jfoshee.png" alt="Jacob Foshee" title="Jacob Foshee" /></a>
+<a href="https://github.com/eajhnsn1"><img src="https://raw.githubusercontent.com/devlooped/sponsors/main/.github/avatars/Mrxx99.png" alt="" title="&quot;)](https://github.com/Mrxx99)
+[![Eric Johnson](https://raw.githubusercontent.com/devlooped/sponsors/main/.github/avatars/eajhnsn1.png &quot;Eric Johnson" /></a>
+<a href="https://github.com/IxTechnologies"><img src="https://raw.githubusercontent.com/devlooped/sponsors/main/.github/avatars/IxTechnologies.png" alt="Ix Technologies B.V." title="Ix Technologies B.V." /></a>
+<a href="https://github.com/davidjenni"><img src="https://raw.githubusercontent.com/devlooped/sponsors/main/.github/avatars/davidjenni.png" alt="David JENNI" title="David JENNI" /></a>
+<a href="https://github.com/Jonathan-Hickey"><img src="https://raw.githubusercontent.com/devlooped/sponsors/main/.github/avatars/Jonathan-Hickey.png" alt="Jonathan " title="Jonathan " /></a>
+<a href="https://github.com/akunzai"><img src="https://raw.githubusercontent.com/devlooped/sponsors/main/.github/avatars/akunzai.png" alt="Charley Wu" title="Charley Wu" /></a>
+<a href="https://github.com/jakobt"><img src="https://raw.githubusercontent.com/devlooped/sponsors/main/.github/avatars/jakobt.png" alt="Jakob Tikjøb Andersen" title="Jakob Tikjøb Andersen" /></a>
+<a href="https://github.com/seanalexander"><img src="https://raw.githubusercontent.com/devlooped/sponsors/main/.github/avatars/seanalexander.png" alt="Seann Alexander" title="Seann Alexander" /></a>
+<a href="https://github.com/tinohager"><img src="https://raw.githubusercontent.com/devlooped/sponsors/main/.github/avatars/tinohager.png" alt="Tino Hager" title="Tino Hager" /></a>
+<a href="https://github.com/ploeh"><img src="https://raw.githubusercontent.com/devlooped/sponsors/main/.github/avatars/ploeh.png" alt="Mark Seemann" title="Mark Seemann" /></a>
+<a href="https://github.com/KenBonny"><img src="https://raw.githubusercontent.com/devlooped/sponsors/main/.github/avatars/KenBonny.png" alt="Ken Bonny" title="Ken Bonny" /></a>
+<a href="https://github.com/SimonCropp"><img src="https://raw.githubusercontent.com/devlooped/sponsors/main/.github/avatars/SimonCropp.png" alt="Simon Cropp" title="Simon Cropp" /></a>
+<a href="https://github.com/agileworks-eu"><img src="https://raw.githubusercontent.com/devlooped/sponsors/main/.github/avatars/agileworks-eu.png" alt="agileworks-eu" title="agileworks-eu" /></a>
+<a href="https://github.com/sorahex"><img src="https://raw.githubusercontent.com/devlooped/sponsors/main/.github/avatars/sorahex.png" alt="sorahex" title="sorahex" /></a>
+<a href="https://github.com/arsdragonfly"><img src="https://raw.githubusercontent.com/devlooped/sponsors/main/.github/avatars/arsdragonfly.png" alt="Zheyu Shen" title="Zheyu Shen" /></a>
+<a href="https://github.com/vezel-dev"><img src="https://raw.githubusercontent.com/devlooped/sponsors/main/.github/avatars/vezel-dev.png" alt="Vezel" title="Vezel" /></a>
+<a href="https://github.com/ChilliCream"><img src="https://raw.githubusercontent.com/devlooped/sponsors/main/.github/avatars/ChilliCream.png" alt="ChilliCream" title="ChilliCream" /></a>
+<a href="https://github.com/4OTC"><img src="https://raw.githubusercontent.com/devlooped/sponsors/main/.github/avatars/4OTC.png" alt="4OTC" title="4OTC" /></a>
+<a href="https://github.com/v-limo"><img src="https://raw.githubusercontent.com/devlooped/sponsors/main/.github/avatars/v-limo.png" alt="Vincent Limo" title="Vincent Limo" /></a></p>
+
+<!-- sponsors.md -->
+
+<p><a href="https://github.com/sponsors/devlooped"><img src="https://raw.githubusercontent.com/devlooped/sponsors/main/sponsor.png" alt="Sponsor this project" title="Sponsor this project" /></a>
+ </p>
+
+<p><a href="https://github.com/sponsors">Learn more about GitHub Sponsors</a></p>
+
+<!-- https://github.com/devlooped/sponsors/raw/main/footer.md -->
+
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        
+        <p class="copyright">ThisAssembly maintained by <a href="https://github.com/devlooped">devlooped</a></p>
+        
+        <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+  </body>
+</html>
